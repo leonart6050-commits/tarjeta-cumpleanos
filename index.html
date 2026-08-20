@@ -239,7 +239,9 @@
         font-weight: 800;
         text-decoration: none;
         box-shadow: 0 10px 30px rgba(255, 111, 145, 0.25);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
       }
 
       .gift-link:hover {
@@ -295,10 +297,20 @@
       }
 
       @keyframes gift-wiggle {
-        0%, 70%, 100% { transform: rotate(0); }
-        76% { transform: rotate(-8deg) scale(1.08); }
-        84% { transform: rotate(8deg) scale(1.08); }
-        92% { transform: rotate(-4deg); }
+        0%,
+        70%,
+        100% {
+          transform: rotate(0);
+        }
+        76% {
+          transform: rotate(-8deg) scale(1.08);
+        }
+        84% {
+          transform: rotate(8deg) scale(1.08);
+        }
+        92% {
+          transform: rotate(-4deg);
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -361,7 +373,7 @@
       <p class="love">Te amo y quiero celebrar muchos cumpleaños contigo ♥</p>
       <a class="gift-link" href="./sorpresa.html">
         <span class="gift-icon" aria-hidden="true">🎁</span>
-        <span>¡Abrí el regalo!</span>
+        <span>¡Abre tu regalo!</span>
       </a>
     </main>
 

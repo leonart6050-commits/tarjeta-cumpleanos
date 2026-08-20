@@ -14,7 +14,9 @@
         --night: #100913;
       }
 
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
       body {
         min-height: 100vh;
@@ -24,7 +26,12 @@
         background:
           radial-gradient(circle at 50% 35%, #4b1833 0, transparent 36%),
           linear-gradient(#170b19, #09060d);
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
       }
 
       .stage {
@@ -61,13 +68,23 @@
         width: 36vw;
         height: 90vh;
         opacity: 0.2;
-        background: linear-gradient(to bottom, rgba(255, 241, 179, 0.8), transparent 75%);
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 241, 179, 0.8),
+          transparent 75%
+        );
         clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
         transform-origin: top center;
       }
 
-      .spotlight.left { left: 4%; animation: sweep-left 5s ease-in-out infinite alternate; }
-      .spotlight.right { right: 4%; animation: sweep-right 5.5s ease-in-out infinite alternate; }
+      .spotlight.left {
+        left: 4%;
+        animation: sweep-left 5s ease-in-out infinite alternate;
+      }
+      .spotlight.right {
+        right: 4%;
+        animation: sweep-right 5.5s ease-in-out infinite alternate;
+      }
 
       .curtain {
         position: absolute;
@@ -76,9 +93,13 @@
         width: min(25vw, 260px);
         height: 100%;
         background:
-          repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 12%, transparent 12% 24%),
+          repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.08) 0 12%,
+            transparent 12% 24%
+          ),
           linear-gradient(90deg, var(--red-dark), var(--red), var(--red-dark));
-        box-shadow: 0 0 35px rgba(0,0,0,0.55);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.55);
       }
 
       .curtain::after {
@@ -92,10 +113,24 @@
         background: linear-gradient(#ffe18d, #ad7620);
       }
 
-      .curtain.left { left: 0; border-radius: 0 0 75% 0; animation: curtain-left 1.4s ease-out both; }
-      .curtain.left::after { right: -14%; transform: rotate(-7deg); }
-      .curtain.right { right: 0; border-radius: 0 0 0 75%; animation: curtain-right 1.4s ease-out both; }
-      .curtain.right::after { left: -14%; transform: rotate(7deg); }
+      .curtain.left {
+        left: 0;
+        border-radius: 0 0 75% 0;
+        animation: curtain-left 1.4s ease-out both;
+      }
+      .curtain.left::after {
+        right: -14%;
+        transform: rotate(-7deg);
+      }
+      .curtain.right {
+        right: 0;
+        border-radius: 0 0 0 75%;
+        animation: curtain-right 1.4s ease-out both;
+      }
+      .curtain.right::after {
+        left: -14%;
+        transform: rotate(7deg);
+      }
 
       .show {
         position: relative;
@@ -120,7 +155,9 @@
         font-size: clamp(38px, 8vw, 82px);
         line-height: 0.95;
         color: var(--cream);
-        text-shadow: 0 4px 0 #83152b, 0 0 26px rgba(255, 211, 106, 0.3);
+        text-shadow:
+          0 4px 0 #83152b,
+          0 0 26px rgba(255, 211, 106, 0.3);
       }
 
       .subtitle {
@@ -189,15 +226,33 @@
         border-radius: 18px;
         color: #37101a;
         background:
-          radial-gradient(circle at 0 50%, transparent 0 11px, var(--cream) 12px),
-          radial-gradient(circle at 100% 50%, transparent 0 11px, var(--cream) 12px);
-        box-shadow: 0 18px 50px rgba(0,0,0,0.48), inset 0 0 0 5px #bd1b39;
+          radial-gradient(
+            circle at 0 50%,
+            transparent 0 11px,
+            var(--cream) 12px
+          ),
+          radial-gradient(
+            circle at 100% 50%,
+            transparent 0 11px,
+            var(--cream) 12px
+          );
+        box-shadow:
+          0 18px 50px rgba(0, 0, 0, 0.48),
+          inset 0 0 0 5px #bd1b39;
       }
 
-      .ticket:first-child { transform: rotate(-7deg) translateX(26px); }
-      .ticket:last-child { transform: rotate(7deg) translateX(-26px); }
+      .ticket:first-child {
+        transform: rotate(-7deg) translateX(26px);
+      }
+      .ticket:last-child {
+        transform: rotate(7deg) translateX(-26px);
+      }
 
-      .ticket small { display: block; font-weight: 900; letter-spacing: 0.24em; }
+      .ticket small {
+        display: block;
+        font-weight: 900;
+        letter-spacing: 0.24em;
+      }
       .ticket strong {
         display: block;
         margin: 14px 0 7px;
@@ -205,13 +260,27 @@
         font-size: clamp(25px, 5vw, 42px);
         color: var(--red);
       }
-      .ticket span { font-weight: 800; }
+      .ticket span {
+        font-weight: 800;
+      }
 
       .message {
         margin: 0 auto 20px;
         max-width: 620px;
         font-size: clamp(17px, 2.5vw, 22px);
         line-height: 1.5;
+      }
+
+      .funny-date {
+        display: inline-block;
+        margin: -5px auto 18px;
+        padding: 7px 14px;
+        border: 1px dashed rgba(255, 211, 106, 0.75);
+        border-radius: 8px;
+        color: var(--gold);
+        font-size: clamp(13px, 2vw, 16px);
+        font-weight: 800;
+        transform: rotate(-1deg);
       }
 
       .back {
@@ -225,28 +294,101 @@
         transition: 0.2s ease;
       }
 
-      .back:hover { color: #321018; background: var(--gold); transform: translateY(-2px); }
+      .back:hover {
+        color: #321018;
+        background: var(--gold);
+        transform: translateY(-2px);
+      }
 
-      @keyframes curtain-left { from { transform: translateX(0); } to { transform: translateX(-46%); } }
-      @keyframes curtain-right { from { transform: translateX(0); } to { transform: translateX(46%); } }
-      @keyframes reveal { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: none; } }
-      @keyframes swing { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
-      @keyframes sweep-left { from { transform: rotate(-14deg); } to { transform: rotate(14deg); } }
-      @keyframes sweep-right { from { transform: rotate(14deg); } to { transform: rotate(-14deg); } }
-      @keyframes shimmer { to { opacity: 0.55; } }
+      @keyframes curtain-left {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-46%);
+        }
+      }
+      @keyframes curtain-right {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(46%);
+        }
+      }
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: scale(0.88);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes swing {
+        from {
+          transform: rotate(-9deg);
+        }
+        to {
+          transform: rotate(9deg);
+        }
+      }
+      @keyframes sweep-left {
+        from {
+          transform: rotate(-14deg);
+        }
+        to {
+          transform: rotate(14deg);
+        }
+      }
+      @keyframes sweep-right {
+        from {
+          transform: rotate(14deg);
+        }
+        to {
+          transform: rotate(-14deg);
+        }
+      }
+      @keyframes shimmer {
+        to {
+          opacity: 0.55;
+        }
+      }
 
       @media (max-width: 560px) {
-        .curtain { width: 24vw; }
-        .tickets { min-height: 170px; }
-        .ticket { min-height: 155px; padding: 18px 14px; }
-        .ticket:first-child { transform: rotate(-6deg) translateX(40px); }
-        .ticket:last-child { transform: rotate(6deg) translateX(-40px); }
+        .curtain {
+          width: 24vw;
+        }
+        .tickets {
+          min-height: 170px;
+        }
+        .ticket {
+          min-height: 155px;
+          padding: 18px 14px;
+        }
+        .ticket:first-child {
+          transform: rotate(-6deg) translateX(40px);
+        }
+        .ticket:last-child {
+          transform: rotate(6deg) translateX(-40px);
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .curtain, .show, .swing, .spotlight, .bulbs { animation: none; }
-        .curtain.left { transform: translateX(-46%); }
-        .curtain.right { transform: translateX(46%); }
+        .curtain,
+        .show,
+        .swing,
+        .spotlight,
+        .bulbs {
+          animation: none;
+        }
+        .curtain.left {
+          transform: translateX(-46%);
+        }
+        .curtain.right {
+          transform: translateX(46%);
+        }
       }
     </style>
   </head>
@@ -261,7 +403,7 @@
       <section class="show">
         <p class="eyebrow">Damas y caballeros</p>
         <h1>¡La función está por comenzar!</h1>
-        <p class="subtitle">Una noche de magia para vos, Yeli ✨</p>
+        <p class="subtitle">Una noche de magia para ti soci ✨</p>
 
         <div class="acrobat" aria-hidden="true">
           <div class="swing">
@@ -273,19 +415,24 @@
 
         <div class="tickets" aria-label="Dos entradas para Cirque du Soleil">
           <article class="ticket">
-            <small>ENTRADA · 01</small>
+            <small>ENTRÉE · 01</small>
             <strong>CIRQUE<br />DU SOLEIL</strong>
-            <span>Admit One 🎪</span>
+            <span>🎪</span>
           </article>
           <article class="ticket" aria-hidden="true">
-            <small>ENTRADA · 02</small>
+            <small>ENTRÉE · 02</small>
             <strong>CIRQUE<br />DU SOLEIL</strong>
-            <span>Admit One 🎪</span>
+            <span>🎪</span>
           </article>
         </div>
 
+        <p class="funny-date">
+          Válido para el 11 de septiembre… lamentablemente 😅
+        </p>
+
         <p class="message">
-          ¡Sorpresa! Nos vamos juntos al <strong>Cirque du Soleil</strong>.<br />
+          ¡Sorpresa! Nos vamos juntos al
+          <strong>Cirque du Soleil</strong>.<br />
           Prepárate para una noche inolvidable. Te amo ❤️
         </p>
         <a class="back" href="./index.html">← Volver a la tarjeta</a>
