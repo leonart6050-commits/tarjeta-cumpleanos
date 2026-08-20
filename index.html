@@ -226,6 +226,35 @@
         color: #fff1e8;
       }
 
+      .gift-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 20px;
+        padding: 10px 22px 10px 14px;
+        border: 1px solid rgba(255, 223, 201, 0.55);
+        border-radius: 999px;
+        color: #2b1318;
+        background: linear-gradient(135deg, #ffd4b8, #ff8da5);
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: 0 10px 30px rgba(255, 111, 145, 0.25);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .gift-link:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 14px 36px rgba(255, 111, 145, 0.38);
+      }
+
+      .gift-icon {
+        display: inline-block;
+        font-size: 30px;
+        line-height: 1;
+        transform-origin: bottom center;
+        animation: gift-wiggle 1.8s ease-in-out infinite;
+      }
+
       @keyframes arrive {
         from {
           opacity: 0;
@@ -265,10 +294,18 @@
         }
       }
 
+      @keyframes gift-wiggle {
+        0%, 70%, 100% { transform: rotate(0); }
+        76% { transform: rotate(-8deg) scale(1.08); }
+        84% { transform: rotate(8deg) scale(1.08); }
+        92% { transform: rotate(-4deg); }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .card,
         .heart,
-        .song-track {
+        .song-track,
+        .gift-icon {
           animation: none;
         }
       }
@@ -322,6 +359,10 @@
         </div>
       </div>
       <p class="love">Te amo y quiero celebrar muchos cumpleaños contigo ♥</p>
+      <a class="gift-link" href="./sorpresa.html">
+        <span class="gift-icon" aria-hidden="true">🎁</span>
+        <span>¡Abrí el regalo!</span>
+      </a>
     </main>
 
     <script>

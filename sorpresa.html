@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Una sorpresa para Yeli 🎪</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --red: #b91635;
+        --red-dark: #650d21;
+        --gold: #ffd36a;
+        --cream: #fff4d6;
+        --night: #100913;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+        color: var(--cream);
+        background:
+          radial-gradient(circle at 50% 35%, #4b1833 0, transparent 36%),
+          linear-gradient(#170b19, #09060d);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .stage {
+        position: relative;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 70px 20px 45px;
+        isolation: isolate;
+        overflow: hidden;
+      }
+
+      .bulbs {
+        position: absolute;
+        z-index: 5;
+        top: 16px;
+        left: 4%;
+        width: 92%;
+        height: 10px;
+        border-top: 2px solid rgba(255, 211, 106, 0.5);
+        background: repeating-radial-gradient(
+          circle at 9px -2px,
+          var(--gold) 0 4px,
+          transparent 5px 30px
+        );
+        filter: drop-shadow(0 0 8px var(--gold));
+        animation: shimmer 1.2s ease-in-out infinite alternate;
+      }
+
+      .spotlight {
+        position: absolute;
+        z-index: -1;
+        top: -10%;
+        width: 36vw;
+        height: 90vh;
+        opacity: 0.2;
+        background: linear-gradient(to bottom, rgba(255, 241, 179, 0.8), transparent 75%);
+        clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+        transform-origin: top center;
+      }
+
+      .spotlight.left { left: 4%; animation: sweep-left 5s ease-in-out infinite alternate; }
+      .spotlight.right { right: 4%; animation: sweep-right 5.5s ease-in-out infinite alternate; }
+
+      .curtain {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        width: min(25vw, 260px);
+        height: 100%;
+        background:
+          repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 12%, transparent 12% 24%),
+          linear-gradient(90deg, var(--red-dark), var(--red), var(--red-dark));
+        box-shadow: 0 0 35px rgba(0,0,0,0.55);
+      }
+
+      .curtain::after {
+        content: "";
+        position: absolute;
+        top: 42%;
+        width: 115%;
+        height: 18px;
+        border: 3px solid #8f641d;
+        border-radius: 999px;
+        background: linear-gradient(#ffe18d, #ad7620);
+      }
+
+      .curtain.left { left: 0; border-radius: 0 0 75% 0; animation: curtain-left 1.4s ease-out both; }
+      .curtain.left::after { right: -14%; transform: rotate(-7deg); }
+      .curtain.right { right: 0; border-radius: 0 0 0 75%; animation: curtain-right 1.4s ease-out both; }
+      .curtain.right::after { left: -14%; transform: rotate(7deg); }
+
+      .show {
+        position: relative;
+        z-index: 2;
+        width: min(92vw, 780px);
+        text-align: center;
+        animation: reveal 1s 0.7s ease-out both;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--gold);
+        font-size: clamp(12px, 2vw, 16px);
+        font-weight: 800;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(38px, 8vw, 82px);
+        line-height: 0.95;
+        color: var(--cream);
+        text-shadow: 0 4px 0 #83152b, 0 0 26px rgba(255, 211, 106, 0.3);
+      }
+
+      .subtitle {
+        margin: 18px auto 24px;
+        font-family: Georgia, serif;
+        font-size: clamp(18px, 3vw, 27px);
+        font-style: italic;
+      }
+
+      .acrobat {
+        position: relative;
+        height: 125px;
+        margin: 0 auto -3px;
+      }
+
+      .rope {
+        position: absolute;
+        left: 50%;
+        top: -80px;
+        width: 2px;
+        height: 94px;
+        background: var(--gold);
+      }
+
+      .hoop {
+        position: absolute;
+        left: 50%;
+        top: 12px;
+        width: 78px;
+        height: 78px;
+        border: 4px solid var(--gold);
+        border-radius: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 0 14px rgba(255, 211, 106, 0.55);
+      }
+
+      .performer {
+        position: absolute;
+        left: 50%;
+        top: 23px;
+        font-size: 43px;
+        transform: translateX(-50%);
+      }
+
+      .swing {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        animation: swing 2.5s ease-in-out infinite alternate;
+        transform-origin: 50% -80px;
+      }
+
+      .tickets {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 24px;
+        min-height: 190px;
+      }
+
+      .ticket {
+        width: min(75vw, 360px);
+        min-height: 170px;
+        padding: 22px 24px;
+        border: 3px solid var(--gold);
+        border-radius: 18px;
+        color: #37101a;
+        background:
+          radial-gradient(circle at 0 50%, transparent 0 11px, var(--cream) 12px),
+          radial-gradient(circle at 100% 50%, transparent 0 11px, var(--cream) 12px);
+        box-shadow: 0 18px 50px rgba(0,0,0,0.48), inset 0 0 0 5px #bd1b39;
+      }
+
+      .ticket:first-child { transform: rotate(-7deg) translateX(26px); }
+      .ticket:last-child { transform: rotate(7deg) translateX(-26px); }
+
+      .ticket small { display: block; font-weight: 900; letter-spacing: 0.24em; }
+      .ticket strong {
+        display: block;
+        margin: 14px 0 7px;
+        font-family: Georgia, serif;
+        font-size: clamp(25px, 5vw, 42px);
+        color: var(--red);
+      }
+      .ticket span { font-weight: 800; }
+
+      .message {
+        margin: 0 auto 20px;
+        max-width: 620px;
+        font-size: clamp(17px, 2.5vw, 22px);
+        line-height: 1.5;
+      }
+
+      .back {
+        display: inline-block;
+        padding: 10px 20px;
+        border: 1px solid rgba(255, 211, 106, 0.55);
+        border-radius: 999px;
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 800;
+        transition: 0.2s ease;
+      }
+
+      .back:hover { color: #321018; background: var(--gold); transform: translateY(-2px); }
+
+      @keyframes curtain-left { from { transform: translateX(0); } to { transform: translateX(-46%); } }
+      @keyframes curtain-right { from { transform: translateX(0); } to { transform: translateX(46%); } }
+      @keyframes reveal { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: none; } }
+      @keyframes swing { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
+      @keyframes sweep-left { from { transform: rotate(-14deg); } to { transform: rotate(14deg); } }
+      @keyframes sweep-right { from { transform: rotate(14deg); } to { transform: rotate(-14deg); } }
+      @keyframes shimmer { to { opacity: 0.55; } }
+
+      @media (max-width: 560px) {
+        .curtain { width: 24vw; }
+        .tickets { min-height: 170px; }
+        .ticket { min-height: 155px; padding: 18px 14px; }
+        .ticket:first-child { transform: rotate(-6deg) translateX(40px); }
+        .ticket:last-child { transform: rotate(6deg) translateX(-40px); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .curtain, .show, .swing, .spotlight, .bulbs { animation: none; }
+        .curtain.left { transform: translateX(-46%); }
+        .curtain.right { transform: translateX(46%); }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <div class="bulbs" aria-hidden="true"></div>
+      <div class="spotlight left" aria-hidden="true"></div>
+      <div class="spotlight right" aria-hidden="true"></div>
+      <div class="curtain left" aria-hidden="true"></div>
+      <div class="curtain right" aria-hidden="true"></div>
+
+      <section class="show">
+        <p class="eyebrow">Damas y caballeros</p>
+        <h1>¡La función está por comenzar!</h1>
+        <p class="subtitle">Una noche de magia para vos, Yeli ✨</p>
+
+        <div class="acrobat" aria-hidden="true">
+          <div class="swing">
+            <span class="rope"></span>
+            <span class="hoop"></span>
+            <span class="performer">🤸</span>
+          </div>
+        </div>
+
+        <div class="tickets" aria-label="Dos entradas para Cirque du Soleil">
+          <article class="ticket">
+            <small>ENTRADA · 01</small>
+            <strong>CIRQUE<br />DU SOLEIL</strong>
+            <span>Admit One 🎪</span>
+          </article>
+          <article class="ticket" aria-hidden="true">
+            <small>ENTRADA · 02</small>
+            <strong>CIRQUE<br />DU SOLEIL</strong>
+            <span>Admit One 🎪</span>
+          </article>
+        </div>
+
+        <p class="message">
+          ¡Sorpresa! Nos vamos juntos al <strong>Cirque du Soleil</strong>.<br />
+          Prepárate para una noche inolvidable. Te amo ❤️
+        </p>
+        <a class="back" href="./index.html">← Volver a la tarjeta</a>
+      </section>
+    </main>
+  </body>
+</html>
