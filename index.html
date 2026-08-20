@@ -26,11 +26,23 @@
         place-items: center;
         color: var(--ink);
         background:
-          radial-gradient(circle at 18% 18%, rgba(255, 147, 113, 0.45) 0, transparent 35%),
-          radial-gradient(circle at 82% 78%, rgba(177, 101, 255, 0.35) 0, transparent 38%),
-          linear-gradient(145deg, #32183b, #171126 70%),
-          var(--deep);
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+          radial-gradient(
+            circle at 18% 18%,
+            rgba(255, 147, 113, 0.45) 0,
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at 82% 78%,
+            rgba(177, 101, 255, 0.35) 0,
+            transparent 38%
+          ),
+          linear-gradient(145deg, #32183b, #171126 70%), var(--deep);
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
       }
 
       canvas {
@@ -48,7 +60,11 @@
         text-align: center;
         border: 1px solid rgba(255, 244, 232, 0.55);
         border-radius: 36px;
-        background: linear-gradient(145deg, rgba(82, 39, 79, 0.78), rgba(30, 18, 43, 0.82));
+        background: linear-gradient(
+          145deg,
+          rgba(82, 39, 79, 0.78),
+          rgba(30, 18, 43, 0.82)
+        );
         box-shadow:
           0 28px 90px rgba(7, 3, 14, 0.55),
           0 0 0 8px rgba(255, 255, 255, 0.025),
@@ -124,7 +140,6 @@
         left: 38%;
         width: 24%;
       }
-      .cat-hit:hover,
       .cat-hit:focus-visible {
         background: rgba(255, 142, 170, 0.12);
       }
@@ -257,7 +272,7 @@
           >¡Miau, te amo! ❤️</span
         >
         <span class="speech person" id="person-speech" role="status"
-          >¡Te amo, Yalis! ❤️</span
+          >¡Te amo, Yalis! 😍</span
         >
         <button
           class="cat-hit left"
