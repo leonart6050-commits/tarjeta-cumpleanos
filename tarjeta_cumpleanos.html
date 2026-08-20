@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Feliz cumpleaños Mi Yeli 🎂🎉❤️</title>
+    <title>Feliz 🎂🎉 Yeli ❤️</title>
     <style>
       :root {
         color-scheme: dark;
@@ -92,7 +92,9 @@
         text-shadow: 0 0 12px rgba(255, 217, 226, 0.28);
       }
 
-      .cat-stage { position: relative; }
+      .cat-stage {
+        position: relative;
+      }
 
       .cat-hit {
         position: absolute;
@@ -105,11 +107,19 @@
         cursor: pointer;
       }
 
-      .cat-hit.left { left: 0; }
-      .cat-hit.right { right: 0; }
+      .cat-hit.left {
+        left: 0;
+      }
+      .cat-hit.right {
+        right: 0;
+      }
       .cat-hit:hover,
-      .cat-hit:focus-visible { background: rgba(255, 142, 170, 0.12); }
-      .cat-hit.pop { animation: cat-pop 0.42s ease; }
+      .cat-hit:focus-visible {
+        background: rgba(255, 142, 170, 0.12);
+      }
+      .cat-hit.pop {
+        animation: cat-pop 0.42s ease;
+      }
 
       .speech {
         position: absolute;
@@ -120,15 +130,23 @@
         border-radius: 16px 16px 16px 4px;
         color: #3a1728;
         background: var(--ink);
-        font: 700 clamp(11px, 1.8vw, 16px)/1.25 system-ui, sans-serif;
+        font:
+          700 clamp(11px, 1.8vw, 16px)/1.25 system-ui,
+          sans-serif;
         opacity: 0;
         transform: translateY(8px) scale(0.9);
         transition: 0.2s ease;
         pointer-events: none;
       }
 
-      .speech.right { right: 0; border-radius: 16px 16px 4px 16px; }
-      .speech.show { opacity: 1; transform: none; }
+      .speech.right {
+        right: 0;
+        border-radius: 16px 16px 4px 16px;
+      }
+      .speech.show {
+        opacity: 1;
+        transform: none;
+      }
 
       .song {
         color: var(--accent);
@@ -181,7 +199,9 @@
       }
 
       @keyframes cat-pop {
-        50% { transform: translateY(-9px) rotate(-3deg) scale(1.06); }
+        50% {
+          transform: translateY(-9px) rotate(-3deg) scale(1.06);
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -204,10 +224,24 @@
       </p>
       <div class="cat-stage">
         <pre id="dance" aria-label="Dos gatitos y una persona bailando"></pre>
-        <span class="speech" id="fat-speech" role="status">¡Quiero Churu! 😸</span>
-        <span class="speech right" id="cat-speech" role="status">¡Miau, te amo! ❤️</span>
-        <button class="cat-hit left" id="fat-cat" type="button" aria-label="Gatito gordito: haz clic para escucharlo"></button>
-        <button class="cat-hit right" id="cat" type="button" aria-label="Gatito: haz clic para escucharlo"></button>
+        <span class="speech" id="fat-speech" role="status"
+          >¡Quiero Churu! 😸</span
+        >
+        <span class="speech right" id="cat-speech" role="status"
+          >¡Miau, te amo! ❤️</span
+        >
+        <button
+          class="cat-hit left"
+          id="fat-cat"
+          type="button"
+          aria-label="Gatito gordito: haz clic para escucharlo"
+        ></button>
+        <button
+          class="cat-hit right"
+          id="cat"
+          type="button"
+          aria-label="Gatito: haz clic para escucharlo"
+        ></button>
       </div>
       <div class="song">♪ Miau, miau… ¡a bailar! ♪</div>
       <p class="love">Te amo y quiero celebrar muchos cumpleaños contigo ♥</p>
@@ -260,8 +294,12 @@
         const button = document.getElementById(buttonId);
         const speech = document.getElementById(speechId);
         button.addEventListener("click", () => {
-          document.querySelectorAll(".speech").forEach((item) => item.classList.remove("show"));
-          document.querySelectorAll(".cat-hit").forEach((item) => item.classList.remove("pop"));
+          document
+            .querySelectorAll(".speech")
+            .forEach((item) => item.classList.remove("show"));
+          document
+            .querySelectorAll(".cat-hit")
+            .forEach((item) => item.classList.remove("pop"));
           clearTimeout(speechTimer);
           void button.offsetWidth;
           button.classList.add("pop");
