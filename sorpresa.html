@@ -300,6 +300,35 @@
         transform: translateY(-2px);
       }
 
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .more {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 11px 22px;
+        border: 1px solid #fff0b8;
+        border-radius: 999px;
+        color: #38131a;
+        background: linear-gradient(135deg, #ffe69a, #f4b83f);
+        box-shadow: 0 8px 28px rgba(255, 211, 106, 0.3);
+        font-weight: 900;
+        text-decoration: none;
+        transition: 0.2s ease;
+      }
+
+      .more:hover {
+        transform: translateY(-3px) scale(1.04);
+        box-shadow: 0 12px 34px rgba(255, 211, 106, 0.45);
+      }
+
+      .more span { animation: sparkle 1.4s ease-in-out infinite alternate; }
+
       @keyframes curtain-left {
         from {
           transform: translateX(0);
@@ -355,6 +384,9 @@
           opacity: 0.55;
         }
       }
+      @keyframes sparkle {
+        to { transform: rotate(18deg) scale(1.2); }
+      }
 
       @media (max-width: 560px) {
         .curtain {
@@ -380,7 +412,8 @@
         .show,
         .swing,
         .spotlight,
-        .bulbs {
+        .bulbs,
+        .more span {
           animation: none;
         }
         .curtain.left {
@@ -435,7 +468,12 @@
           <strong>Cirque du Soleil</strong>.<br />
           Prepárate para una noche inolvidable. Te amo ❤️
         </p>
-        <a class="back" href="./index.html">← Volver a la tarjeta</a>
+        <div class="actions">
+          <a class="back" href="./index.html">← Volver a la tarjeta</a>
+          <a class="more" href="./candlelight.html">
+            Y aún hay más… <span aria-hidden="true">✨</span>
+          </a>
+        </div>
       </section>
     </main>
   </body>
