@@ -168,6 +168,19 @@
         line-height: 1.5;
       }
 
+      .date-note {
+        display: inline-block;
+        margin: -3px auto 18px;
+        padding: 8px 15px;
+        border: 1px dashed rgba(232, 185, 93, 0.72);
+        border-radius: 8px;
+        color: var(--gold);
+        font-family: system-ui, sans-serif;
+        font-size: clamp(13px, 2vw, 16px);
+        font-weight: 800;
+        transform: rotate(-1deg);
+      }
+
       .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 11px; }
 
       .button {
@@ -270,6 +283,10 @@
             <span>Una experiencia musical entre velas</span>
           </article>
         </div>
+
+        <p class="date-note">
+          Fecha a definir — para más información, pregunte a su “date” 😉
+        </p>
 
         <p class="message">
           Porque una sola sorpresa no era suficiente…<br />
